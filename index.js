@@ -7,7 +7,7 @@ app.get('/',(req,res) =>{
 res.send("hello from backend")
 })
 
-app.listen(PORT ,(err)=>{
+app.listen(PORT ||3000,(err)=>{
 if(err){
     console.log("failed to connect server"); 
 }
