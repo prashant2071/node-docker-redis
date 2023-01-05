@@ -1,0 +1,32 @@
+// 1. check system status of docker 
+systemctl status docker
+
+// 2 to go into docker file system
+docker exec -it node-app bash
+
+// 3 list docker images
+docker image ls 
+
+// 4 list runnig container
+docker ps 
+
+// 5 list running and non running container
+docker ps -a
+
+// 6 build image in same directory /app i mean if WORKDIR /app
+docker build -t node-app-image .
+
+// 7 list specific docker logs
+docker logs node-app
+
+//8 remove docker container
+docker rm node-app -f
+
+// 9 docker run and volume mount in linux system
+docker run -v $(pwd):/app   -p 8000:3000 -d --name node-app node-app-image
+
+// 10 docker run and volume mount but don't sync node_modules specific in linux system
+docker run -v $(pwd):/app -v /app/node_modules  -p 8000:3000 -d --name node-app node-app-image
+
+// 10 don't touch docker container data readOnly(dont change file) specific in linux system
+docker run -v $(pwd):/app:ro -v /app/node_modules  -p 8000:3000 -d --name node-app node-app-image
