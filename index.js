@@ -4,7 +4,7 @@ require('dotenv').config();
 const PORT = process.env.PORT;
 
 app.get('/',(req,res) =>{
-res.send("<h2>hello from backend!!!</h2>")
+res.send("<h2>hello from backend server</h2>")
 })
 
 app.listen(PORT ||3000,(err)=>{
